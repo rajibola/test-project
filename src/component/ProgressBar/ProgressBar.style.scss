@@ -61,7 +61,7 @@
               justify-content: center;
               align-items: center;
               border-radius: 50%;
-              color: var(--white);
+              color: $white;
 
               .tick-mark {
                 position: relative;
@@ -75,7 +75,7 @@
                   bottom: 0;
                   height: 1px;
                   width: 100%;
-                  background-color: var(--white);
+                  background-color: $white;
                   content: "";
                   transform: translateX(4px) rotate(-45deg);
                   transform-origin: left bottom;
@@ -87,7 +87,7 @@
                   top: 50%;
                   height: 50%;
                   width: 1px;
-                  background-color: var(--white);
+                  background-color: $white;
                   content: "";
                   transform: translateX(4px) rotate(-45deg);
                   transform-origin: left bottom;
