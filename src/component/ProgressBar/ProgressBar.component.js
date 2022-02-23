@@ -34,25 +34,33 @@ export class ProgressBar extends PureComponent {
     return (
       <div className="container">
         <div className="line">
-          {stepsArray.map((item, i) => {
-            const active = item === activeStep;
-            const showMark =
-              activeIndex > i ? <div className="tick-mark" /> : i + 1;
-            const circleClassName =
-              active || activeIndex >= i ? "circle colored" : "circle";
-            const lineClassName =
-              active || activeIndex >= i ? "line-overlay" : "";
+          <div className="centered">
+            {stepsArray.map((item, i) => {
+              const active = item === activeStep;
+              const showMark =
+                activeIndex > i ? <div className="tick-mark" /> : i + 1;
+              const circleClassName =
+                active || activeIndex >= i ? "circle colored" : "circle";
+              const lineClassName =
+                i == 0
+                  ? ""
+                  : active || activeIndex > i
+                  ? "line-overlay line-overlay-active"
+                  : "line-overlay";
 
-            return (
-              <div className="circle-container" key={i}>
-                <div className="circle-padding">
-                  <div className={circleClassName}>{showMark}</div>
+              return (
+                <div className="circle-container" key={i}>
+                  <div className={lineClassName} />
+                  <div className="circle-text">
+                    <div className="circle-padding">
+                      <div className={circleClassName}>{showMark}</div>
+                    </div>
+                    <div className="subtext">{this.formatName(item)}</div>
+                  </div>
                 </div>
-                <div className={lineClassName} />
-                <div className="subtext">{this.formatName(item)}</div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     );
